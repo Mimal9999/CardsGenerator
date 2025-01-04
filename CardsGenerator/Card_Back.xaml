@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="CardsGenerator.Card_Back"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CardsGenerator"
+             mc:Ignorable="d" 
+             MinWidth="217" MinHeight="217"
+             MaxWidth="217" MaxHeight="217">
+    <Grid x:Name="CardGrid" Background="{Binding BackgroundGradient}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.9*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1.5*" />
+            <RowDefinition Height="0.7*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock TextAlignment="Center" TextWrapping="Wrap" Text="{Binding Author}" Background="Transparent" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="10,10,10,0" FontSize="{Binding Author, Converter={StaticResource AuthorFontSizeConverter}}" FontWeight="Bold" Grid.Row="0"/>
+
+        <TextBlock TextAlignment="Center" Text="{Binding Title}" Background="Transparent" VerticalAlignment="Center" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="10,0,10,0" FontSize="18" TextWrapping="Wrap" FontWeight="Thin" FontStyle="Italic" Grid.Row="2"/>
+
+        <TextBlock TextAlignment="Center" Text="{Binding Year}" Background="Transparent" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="10,0,10,0" FontSize="60" FontWeight="Bold" Grid.Row="1"/>
+
+        <TextBlock TextAlignment="Center" Text="{Binding Views, Converter={StaticResource NumberToShortStringConverter}}" Background="Transparent" Grid.Column="0" Grid.Row="3" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" FontSize="14" FontWeight="Bold"/>
+
+        <TextBlock TextAlignment="Center" Text="{Binding Name}" Background="Transparent" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="3" Margin="0,0,10,10" FontSize="14" FontWeight="Bold" VerticalAlignment="Bottom"/>
+    </Grid>
+</UserControl>
